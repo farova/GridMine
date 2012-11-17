@@ -1,53 +1,43 @@
 package com.farova.includes;
 
 public class FieldBox {
-	
-	public enum BoxStatus { 
-		NotClicked, 
-		ClickedEmpty, 
-		ClickedBomb, 
-		MarkedUnknown, 
-		MarkedBomb }
+
+	public enum BoxStatus {
+		NotClicked, ClickedEmpty, ClickedBomb, MarkedUnknown, MarkedBomb
+	}
 
 	public BoxStatus m_status;
 	public boolean m_isBomb;
 	public int m_bombCount;
-	
-	public FieldBox()
-	{
+
+	public FieldBox() {
 		m_status = BoxStatus.NotClicked;
 		m_isBomb = false;
 		m_bombCount = 0;
 	}
 
-	public BoxStatus getStatus()
-	{
+	public BoxStatus getStatus() {
 		return m_status;
 	}
-	
-	public void setStatus(BoxStatus status)
-	{
+
+	public void setStatus(BoxStatus status) {
 		m_status = status;
 	}
 
-	public boolean isBomb()
-	{
+	public boolean isBomb() {
 		return m_isBomb;
 	}
-	
-	public void setIfBomb(boolean isBomb)
-	{
+
+	public void setIfBomb(boolean isBomb) {
 		m_isBomb = isBomb;
 	}
 
-	public int getBombCount()
-	{
+	public int getBombCount() {
 		return m_bombCount;
 	}
-	
-	public void setStatus(int count)
-	{
+
+	public void setStatus(int count) {
 		m_bombCount = count;
 	}
-	
+
 }
