@@ -2,6 +2,8 @@ package com.farova.includes;
 
 import java.util.Timer;
 
+import com.farova.gridmine.R;
+
 import android.content.Context;
 
 public class MineField {
@@ -20,10 +22,7 @@ public class MineField {
 		m_preferenceManager = new Preferences(m_context);
 		m_difficulty = m_preferenceManager.getDifficulty();
 		m_gridDimension = Difficulty.getDifficultyGridSize(m_difficulty);
-		m_mineGrid = new FieldBox[m_gridDimension][m_gridDimension];
 		m_numBombs = Difficulty.getDifficultyNumBombs(m_difficulty);
-
-		assignBombs();
 
 	}
 
@@ -40,6 +39,7 @@ public class MineField {
 				{
 					m_mineGrid[row][col].m_isBomb = true;
 					bombAssigned = true;
+					
 				}
 			}
 		}
@@ -47,6 +47,11 @@ public class MineField {
 
 	public FieldBox[][] getMineField() {
 		return m_mineGrid;
+	}
+	
+	public void setMineField(FieldBox[][] field) {
+		m_mineGrid = field;
+		assignBombs();
 	}
 
 	public int getNumBombs() {

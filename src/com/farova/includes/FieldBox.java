@@ -1,6 +1,9 @@
 package com.farova.includes;
 
-public class FieldBox {
+import android.content.Context;
+import android.widget.ImageView;
+
+public class FieldBox extends ImageView  {
 
 	public enum BoxStatus {
 		NotClicked, ClickedEmpty, ClickedBomb, MarkedUnknown, MarkedBomb
@@ -10,7 +13,8 @@ public class FieldBox {
 	public boolean m_isBomb;
 	public int m_bombCount;
 
-	public FieldBox() {
+	public FieldBox(Context context) {
+        super(context);
 		m_status = BoxStatus.NotClicked;
 		m_isBomb = false;
 		m_bombCount = 0;
