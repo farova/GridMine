@@ -31,14 +31,14 @@ public class GameLayout extends Activity {
 			TableRow tr = new TableRow(this);
 			for (int c = 1; c <= m_gridSize; c++) {
 				
-				/*
+				
 				ImageView im = new ImageView(this);
 				im.setImageDrawable(getResources().getDrawable(R.drawable.image_name));
-				im.setPadding(0, 0, 0, 0); // padding in each image if needed
-				// add here on click event etc for each image...
-				// ...
+				im.setPadding(0, 0, 0, 0);
+				
+				
+				
 				tr.addView(im, imageWidth, imageHeight);
-				*/
 			}
 			table.addView(tr);
 		}

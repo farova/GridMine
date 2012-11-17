@@ -5,7 +5,7 @@ public class Difficulty {
 	private static int m_defaultDifficulty = 1;
 	private static String[] m_diffculty = { "Easy", "Medium", "Hard", "Inasne" };
 	private static int[] m_diffcultyGridSize = { 10, 20, 30, 40 };
-	private static float[] m_diffcultyMultiplier = { 1, 1.5f, 2, 4 };
+	private static float[] m_diffcultyMultiplier = { 1, 2, 3, 6 };
 
 	public static String getDifficulty(int difficulty) {
 		return m_diffculty[difficulty];
@@ -25,6 +25,11 @@ public class Difficulty {
 
 	public static String[] getDifficulties() {
 		return m_diffculty;
+	}
+	
+	public static int getDifficultyNumBombs(int difficulty)
+	{
+		return Math.round(m_diffcultyGridSize[difficulty] * m_diffcultyMultiplier[difficulty]);
 	}
 
 }

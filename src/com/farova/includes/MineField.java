@@ -21,14 +21,28 @@ public class MineField {
 		m_difficulty = m_preferenceManager.getDifficulty();
 		m_gridDimension = Difficulty.getDifficultyGridSize(m_difficulty);
 		m_mineGrid = new FieldBox[m_gridDimension][m_gridDimension];
-		m_numBombs = getNumbBombsForGrid(m_gridDimension);
+		m_numBombs = Difficulty.getDifficultyNumBombs(m_difficulty);
+
+		assignBombs();
 
 	}
 
-	private int getNumbBombsForGrid(int gridDimension) {
-		int difficulty = m_preferenceManager.getDifficulty();
-
-		return gridDimension;
+	private void assignBombs() {
+		for (int numAssigned = 1; numAssigned <= m_numBombs; numAssigned++)
+		{
+			boolean bombAssigned = false;
+			while(bombAssigned)
+			{
+				int row = (int) Math.ceil(Math.random()*(m_gridDimension - 1)) +1;
+				int col = (int) Math.ceil(Math.random()*(m_gridDimension - 1)) +1;
+				
+				if(!m_mineGrid[row][col].isBomb())
+				{
+					m_mineGrid[row][col].m_isBomb = true;
+					bombAssigned = true;
+				}
+			}
+		}
 	}
 
 	public FieldBox[][] getMineField() {
